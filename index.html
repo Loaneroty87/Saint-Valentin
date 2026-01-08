@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Saint-Valentin pour Emma ❤️</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@500;700&display=swap');
+
+  body {
+    margin: 0;
+    min-height: 100vh;
+    background: #6b0a0a; /* Rouge bordeaux */
+    font-family: 'Poppins', sans-serif;
+    color: #ffd1dc;
+    overflow: hidden;
+  }
+
+  .page {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    transition: opacity 0.8s ease;
+  }
+
+  .hidden {
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  h1 {
+    font-size: 2.6rem;
+    text-shadow: 0 0 12px #ff6f91;
+    margin-bottom: 15px;
+  }
+
+  p {
+    font-size: 1.2rem;
+    line-height: 1.8;
+    max-width: 600px;
+    text-shadow: 0 0 6px #ff9db3;
+  }
+
+  .gif-container {
+    display: flex;
+    gap: 15px;
+    margin: 25px 0;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .gif-container img {
+    max-width: 150px;
+    border-radius: 18px;
+    box-shadow: 0 0 15px #ff6f91;
+  }
+
+  button {
+    margin-top: 25px;
+    padding: 14px 50px;
+    border-radius: 50px;
+    border: none;
+    background: #ff4f8b;
+    color: white;
+    font-size: 1.2rem;
+    cursor: pointer;
+    box-shadow: 0 0 25px #ff4f8b;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  button:hover {
+    transform: scale(1.08);
+    box-shadow: 0 0 40px #ff2a66;
+  }
+
+  .heart {
+    position: fixed;
+    font-size: 18px;
+    color: #ff6f91;
+    opacity: 0.75;
+    pointer-events: none;
+    user-select: none;
+  }
+</style>
+</head>
+<body>
+
+<!-- PAGE 1 -->
+<div id="page1" class="page">
+  <h1>Emma ❤️</h1>
+  <p>Depuis que tu es dans ma vie, je ne fais que sourire comme une tarée</p>
+  <div class="gif-container">
+    <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExa2FnNnppdGM3NGhua290dWZjcnlya2dhd3d1aWw0cXlydmQyN2E4dyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/BWplyaNrHRjRvweNjS/giphy.gif"
+    
+    alt="chat mignon">
+  </div>
+  <button onclick="nextPage()">Continuer 💌</button>
+</div>
+
+<!-- PAGE 2 -->
+<div id="page2" class="page hidden">
+  <h1>Emma, tu es celle que je veux </h1>
+  <p>Chaque instant avec toi me rend heureuse. Je pense à toi tout le temps. </p>
+  <div class="gif-container">
+    <img src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExbzY2M3l0NDlyMmQxZWl1cXBrdHBtMzExcWEzZWxjMDRoeXIwMzcycyZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/RKi3KN2KUm03S/giphy.gif" >
+    <img src="https://media0.giphy.com/media/v1.Y2lkPTc5MGI3NjExcm1saml3dWJrNm52czhtcmVwMnQ5eHV5emdyc2s2eDgxNDFpcDdzcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/QGMiTNBw8hB72/giphy.gif" >
+  </div>
+  <button onclick="nextPage()">Continuer 💌</button>
+</div>
+
+<!-- PAGE 3 -->
+<div id="page3" class="page hidden">
+  <h1>Emma, tu es unique ✨</h1>
+  <p>Je t'aime plus que tout, et je rêve de partager ma vie avec toi. </p>
+  <div class="gif-container">
+    <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExdzh1dno5cTk4bG4yZTM1ZzJiZm1zZXJsYWxydjduY3d0MDg5NjNnbSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cItcBPNGImoTcB3oHU/giphy.gif" >
+  </div>
+  <button onclick="nextPage()">Continuer 💌</button>
+</div>
+
+<!-- PAGE 4 : QUESTION VALENTINE -->
+<div id="page4" class="page hidden">
+  <h1>Veux-tu être ma Valentine ? Stp dis oui</h1>
+  <div class="gif-container">
+    <img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHNpd3ozdjBvb25vYnIzem42NnRxejRpOGE3ZzFqeGljODAxbWNrcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cdg9FCUu335P7Py7aW/giphy.gif" >
+  </div>
+  <button onclick="loveResponse(true)">Oui 💖</button>
+  <button onclick="loveResponse(false)">Non </button>
+</div>
+
+<!-- PAGE 5 : RÉPONSE -->
+<div id="page5" class="page hidden">
+  <h1 id="finalMessage"></h1>
+  <div class="gif-container" id="finalGif"></div>
+</div>
+
+<script>
+  let currentPage = 1;
+
+  function nextPage() {
+    document.getElementById(`page${currentPage}`).classList.add('hidden');
+    currentPage++;
+    document.getElementById(`page${currentPage}`).classList.remove('hidden');
+  }
+
+  function loveResponse(isYes) {
+    document.getElementById('page4').classList.add('hidden');
+    document.getElementById('page5').classList.remove('hidden');
+
+    const message = document.getElementById('finalMessage');
+    const gifContainer = document.getElementById('finalGif');
+
+    if(isYes){
+      message.textContent = "C'est super!";
+      gifContainer.innerHTML = `<img src="https://media.giphy.com/media/l0MYt5jPR6QX5pnqM/giphy.gif" alt="amour">`;
+    } else {
+      message.textContent = "Je suis pas d'accord, on va avoir une discussion";
+      gifContainer.innerHTML = `<img src="https://media3.giphy.com/media/v1.Y2lkPTc5MGI3NjExMHNpd3ozdjBvb25vYnIzem42NnRxejRpOGE3ZzFqeGljODAxbWNrcCZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/cdg9FCUu335P7Py7aW/giphy.gif" alt="pleurs">`;
+    }
+  }
+
+  // Coeurs flottants
+  function createHeart() {
+    const heart = document.createElement('div');
+    heart.className = 'heart';
+    heart.textContent = '❤️';
+
+    const side = Math.random() < 0.5 ? 'left' : 'right';
+    heart.style[side] = Math.random() * 12 + 'vw';
+    heart.style.bottom = '-20px';
+
+    const size = 14 + Math.random() * 18;
+    heart.style.fontSize = size + 'px';
+
+    const duration = 5000 + Math.random() * 4000;
+
+    heart.animate([
+      { transform: 'translateY(0)', opacity: 1 },
+      { transform: `translateY(-110vh)`, opacity: 0 }
+    ], { duration: duration, easing: 'linear' });
+
+    document.body.appendChild(heart);
+    setTimeout(() => heart.remove(), duration);
+  }
+
+  setInterval(createHeart, 400);
+</script>
+
+</body>
+</html>
